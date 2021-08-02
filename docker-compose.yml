@@ -1,0 +1,19 @@
+version: "3.3"
+
+services:
+
+  react:
+    container_name: mortgage-calculator-spa
+    image: node:12
+    ports:
+      - 3000:3000
+    working_dir: /app
+    volumes:
+      - ./:/app
+      - node_modules:/app/node_modules
+    command: sh -c "yarn && yarn start"
+    env_file:
+      - .env
+
+volumes:
+  node_modules:
