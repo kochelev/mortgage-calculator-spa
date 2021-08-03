@@ -75,7 +75,12 @@ export default makeStyles(theme => ({
     // no style
   },
   footer: {
-    minHeight: theme.spacing(11),
+    padding: theme.spacing(2),
+    display: 'flex',
+    alignItems: 'end',
+    justifyContent: 'flex-start',
+  },
+  links: {
     padding: theme.spacing(2),
     display: 'flex',
     alignItems: 'end',
@@ -86,9 +91,12 @@ export default makeStyles(theme => ({
     display: 'flex',
     width: '140px',
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    // justifyContent: 'space-between',
     alignItems: 'end',
     height: 24,
+  },
+  ghLink: {
+    marginRight: theme.spacing(2),
   },
   siteName: {
     fontSize: '1.6rem',

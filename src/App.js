@@ -130,17 +130,19 @@ const App = (props) => {
           
           </Box>
   
-          <Box className={classes.footer}>
+          <Box className={classes.links}>
             <Link
               href="https://github.com/kochelev"
               color="inherit"
               target="_blank"
               className={classes.linkGitHub} >
-              <GitHubIcon />
-              <Typography variant="body2">Nikolai Kochelev</Typography>
+              <GitHubIcon className={classes.ghLink}/>
+              <Typography variant="body2">kochelev</Typography>
             </Link>
-            <Typography variant="h6">
-              Vesion 1.0.00
+          </Box>
+          <Box className={classes.footer}>
+            <Typography variant="body2">
+              Vesion 1.0.01
             </Typography>
           </Box>
           
