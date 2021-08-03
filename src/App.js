@@ -142,7 +142,7 @@ const App = (props) => {
           </Box>
           <Box className={classes.footer}>
             <Typography variant="body2">
-              Vesion 1.0.01
+              Vesion 1.0.02
             </Typography>
           </Box>
           
