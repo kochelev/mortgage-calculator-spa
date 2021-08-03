@@ -76,7 +76,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 
 
-REACT_APP_ENV='development'
+REACT_APP_ENV='dev'
 REACT_APP_API_URL='http://localhost:5000'
 
 
