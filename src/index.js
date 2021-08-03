@@ -11,13 +11,13 @@ import reportWebVitals from './reportWebVitals';
 let debugMode = false;
 let store = null;
 
-if (process.env.REACT_APP_ENV === 'development') {
+if (process.env.REACT_APP_ENV === 'dev') {
   const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
   store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)));
   debugMode = true;
-} else if (process.env.REACT_APP_ENV === 'production') {
+} else if (process.env.REACT_APP_ENV === 'prod') {
   store = createStore(reducer, applyMiddleware(thunk));
-} else alert('Not appropriate ENV value, should be "development" or "production"!');
+} else alert('Not appropriate ENV value, should be "dev" or "prod"!');
 
 const app = (
   <Provider store={store}>
