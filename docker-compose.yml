@@ -4,7 +4,7 @@ services:
 
   react:
     container_name: mortgage-calculator-spa
-    image: node:12
+    image: node:16
     ports:
       - 3000:3000
     working_dir: /app
