@@ -24,7 +24,6 @@ import Typography from '@material-ui/core/Typography';
 
 import RegExpList from '../helpers/regExpList';
 import ConfiguredTextField from './fields/configuredTextField';
-import ConfiguredRadioGroup from './fields/configuredRadioGroup';
 
 const SetPrerequisites = (props) => {
   
@@ -44,7 +43,7 @@ const SetPrerequisites = (props) => {
     months:                     data ? data.credit_scheme.months.toString() : null,
   };
 
-  const { control, register, handleSubmit, errors, watch, getValues } = useForm({
+  const { register, handleSubmit, errors, watch, getValues } = useForm({
     defaultValues,
     mode: 'onSubmit',
     criteriaMode: 'all',
@@ -110,12 +109,6 @@ const SetPrerequisites = (props) => {
     errors,
     register,
     disabled: props.isPending,
-  }
-
-  const radioGroupProps = {
-    errors,
-    control,
-    disabled: !props.isPending,
   }
 
   return (
@@ -201,16 +194,6 @@ const SetPrerequisites = (props) => {
             required={true}
             pattern={RegExpList.zeroPosInt}
             endAdornment="months" />
-
-          {/* <ConfiguredRadioGroup {...radioGroupProps}
-            name="use_credit"
-            label="With credit:"
-            helperText="With credit bla-bla"
-            required={true}
-            values={{
-              "true": "Yes",
-              "false": "No",
-            }} /> */}
 
           <Box css={{ p: '20px 0' }}>
             <Typography variant="h6" noWrap>
