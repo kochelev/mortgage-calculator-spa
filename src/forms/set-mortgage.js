@@ -184,15 +184,15 @@ const SetMortgage = (props) => {
             <ConfiguredTextField {...textFieldProps}
               name="initial_payment_percent"
               label="Initial payment"
-              helperText=".....?"
+              helperText="How much money in percent of realty cost you have to have?"
               required={true}
               pattern={RegExpList.zeroPosFloat}
               endAdornment="%" />
 
             <ConfiguredTextField {...textFieldProps}
               name="initial_expenses"
-              label="Initial expencies"
-              helperText=".....?"
+              label="Initial expenses"
+              helperText="How much money will you pay for ensurance and so on?"
               required={true}
               pattern={RegExpList.zeroPosInt}
               endAdornment="any currency" />
@@ -204,7 +204,7 @@ const SetMortgage = (props) => {
               </Typography>
 
               <DialogContentText>
-                sdfjlksdjflkjsaklfjasdkl
+                Input 1 or 2 periods of the mortgage.
               </DialogContentText>
 
               {Object.entries(currentFormState.schedule).map(([key, period], index) => {
@@ -219,8 +219,8 @@ const SetMortgage = (props) => {
                           
                           <ConfiguredTextField {...textFieldProps}
                             name={'schedule.' + key + '.interest_rate'}
-                            label="Interest Rates"
-                            helperText=".....?"
+                            label="Interest rate"
+                            helperText="Annual interest rate of the period."
                             required={true}
                             pattern={RegExpList.posFloat}
                             maxLength={4}
@@ -232,7 +232,7 @@ const SetMortgage = (props) => {
                           <ConfiguredTextField {...textFieldProps}
                             name={'schedule.' + key + '.months'}
                             label="Months"
-                            helperText=".....?"
+                            helperText="Period duration in months."
                             required={true}
                             pattern={RegExpList.posInt}
                             max={1200}
