@@ -93,7 +93,7 @@ const App = (props) => {
               <ButtonGroup size="small" color="primary" aria-label="small outlined primary button group">
                 <Button disabled>Eng</Button>
                 <Button disabled>Рус</Button>
-                <Button disabled>中文</Button>
+                {/* <Button disabled>中文</Button> */}
               </ButtonGroup>
   
           </Toolbar>
@@ -142,7 +142,7 @@ const App = (props) => {
           </Box>
           <Box className={classes.footer}>
             <Typography variant="body2">
-              Vesion 1.0.02
+              Vesion 1.0.03
             </Typography>
           </Box>
           
