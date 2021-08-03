@@ -78,3 +78,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 REACT_APP_ENV='development'
 REACT_APP_API_URL='http://localhost:5000'
+
+
+Before pushing commit to the origin, try to run «docker-compose up», and try to run front on the staging server.
