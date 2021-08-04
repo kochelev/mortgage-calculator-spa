@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import ReactGA from 'react-ga';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { createStore, applyMiddleware, compose } from 'redux';
 import reducer from './store/reducer';
@@ -18,6 +19,10 @@ if (process.env.REACT_APP_ENV === 'dev') {
 } else if (process.env.REACT_APP_ENV === 'prod') {
   store = createStore(reducer, applyMiddleware(thunk));
 } else alert('Not appropriate ENV value, should be "dev" or "prod"!');
+
+if (process.env.REACT_APP_GA_ID) {
+  ReactGA.initialize(process.env.REACT_APP_GA_ID);
+}
 
 const app = (
   <Provider store={store}>
