@@ -18,6 +18,8 @@ if (process.env.REACT_APP_ENV === 'dev') {
   debugMode = true;
 } else if (process.env.REACT_APP_ENV === 'prod') {
   store = createStore(reducer, applyMiddleware(thunk));
+} else if (process.env.REACT_APP_ENV === 'test') {
+  store = createStore(reducer, applyMiddleware(thunk));
 } else alert('Not appropriate ENV value, should be "dev" or "prod"!');
 
 if (process.env.REACT_APP_GA_ID) {
