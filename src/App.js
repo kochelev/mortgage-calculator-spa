@@ -69,6 +69,8 @@ const App = (props) => {
     const [ isSettingRealty, setIsSettingRealty ] = useState({isShown: false, data: null});
     const [ isShowingDetalization, setIsShowingDetalization ] = useState({isShown: false, data: null});
   
+    const stage = process.env.REACT_APP_ENV !== 'prod' ? ' ' + process.env.REACT_APP_ENV : null;
+
     return (
       <div className={classes.root}>
         <CssBaseline />
@@ -142,7 +144,7 @@ const App = (props) => {
           </Box>
           <Box className={classes.footer}>
             <Typography variant="body2">
-              Vesion 1.1.0
+              Vesion 1.1.0{stage}
             </Typography>
           </Box>
           
