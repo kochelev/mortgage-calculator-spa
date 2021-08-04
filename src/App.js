@@ -144,7 +144,7 @@ const App = (props) => {
           </Box>
           <Box className={classes.footer}>
             <Typography variant="body2">
-              Vesion 1.1.0{stage}
+              Vesion 1.1.1{stage}
             </Typography>
           </Box>
           
