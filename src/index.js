@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
+import {Helmet} from 'react-helmet';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { createStore, applyMiddleware, compose } from 'redux';
 import reducer from './store/reducer';
@@ -11,22 +12,45 @@ import reportWebVitals from './reportWebVitals';
 let debugMode = false;
 let store = null;
 
-if (process.env.REACT_APP_ENV === 'dev') {
+if (process.env.REACT_APP_ENV !== 'prod') {
   const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
   store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)));
   debugMode = true;
-} else if (process.env.REACT_APP_ENV === 'prod') {
+} else {
   store = createStore(reducer, applyMiddleware(thunk));
-} else alert('Not appropriate ENV value, should be "dev" or "prod"!');
+}
+
+const injectGoogleAnalytics = (gaId) => {
+  if (typeof window == 'undefined') {
+    return;
+  }
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    window.dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+  gtag('config', gaId);
+}
 
 const app = (
-  <Provider store={store}>
-    <React.StrictMode>
-      <Router>
-        <App debugMode={debugMode} />
-      </Router>
-    </React.StrictMode>
-  </Provider>
+  <Fragment>
+    <Helmet>
+      <title>Mortgage Calculator ++</title>
+    </Helmet>
+    {process.env.REACT_APP_GA_ID ? (
+      <Helmet>
+        <script>{injectGoogleAnalytics(process.env.REACT_APP_GA_ID)}</script>
+        <script async src={"https://www.googletagmanager.com/gtag/js?id=" + process.env.REACT_APP_GA_ID}></script>
+      </Helmet>
+    ) : null}
+    <Provider store={store}>
+      <React.StrictMode>
+        <Router>
+          <App debugMode={debugMode} />
+        </Router>
+      </React.StrictMode>
+    </Provider>
+  </Fragment>
 );
 
 ReactDOM.render(app, document.getElementById('root'));
